@@ -95,7 +95,7 @@ public class SoapKitFerriMessageWriter {
                     Element lottoEl = doc.createElementNS(SAP_NS, "ns:lotto");
                     caricoEl.appendChild(lottoEl);
 
-                    appendChildWithText(doc, lottoEl, "ns:scadenza", Long.toString(lotto.getScadenza()));
+                    appendChildWithText(doc, lottoEl, "ns:scadenza", lotto.getScadenza());
                     appendChildWithText(doc, lottoEl, "ns:descrizione", lotto.getDescrizione());
                     appendChildWithText(doc, lottoEl, "ns:codice", Long.toString(lotto.getCodice()));
                 }

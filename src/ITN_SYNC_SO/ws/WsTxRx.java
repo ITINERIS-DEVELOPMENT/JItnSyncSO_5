@@ -104,7 +104,7 @@ public class WsTxRx implements UpdTxInterface, CommandInterface {
                                         .prezzo("")
                                         .build())
                                 .lotto(Lotto.builder()
-                                        .scadenza(synch.getDataScadLong()) // unsignedLong
+                                        .scadenza(synch.getDataScad()) // unsignedLong
                                         .descrizione(synch.getLotto())
                                         .codice(synch.getLottoNumerico()) // unsignedLong
                                         .build())

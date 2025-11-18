@@ -143,7 +143,7 @@ public class Synch {
     }
 
     public long getDataScadLong(){
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         try {
             return sdf.parse(data).getTime();
         } catch (ParseException ex) {
