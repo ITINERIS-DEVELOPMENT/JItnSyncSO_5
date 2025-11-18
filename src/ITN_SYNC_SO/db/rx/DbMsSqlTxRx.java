@@ -228,7 +228,7 @@ public class DbMsSqlTxRx extends DbMsSqlInterface implements CommandInterface, U
         Synch synch = new Synch();
 
         synch.setCodiceKit(rs.getString(DF_NAME_COD_KIT));
-        synch.setIdSpedizione(rs.getInt(DF_NAME_ID_SPEDIZIONE));
+        synch.setIdSpedizione(Integer.parseInt(rs.getString(DF_NAME_ID_SPEDIZIONE)));
         synch.setIdKit(rs.getString(DF_NAME_ID_KIT));
 
         if(!dbProperties.isSIX()) {
