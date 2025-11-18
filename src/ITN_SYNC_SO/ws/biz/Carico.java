@@ -10,18 +10,88 @@ package ITN_SYNC_SO.ws.biz;
  */
 public class Carico extends XmlUtil {
 
-    private String spedizioneId;           // required
-    private String data;                   // xs:anySimpleType -> manteniamo String
-    private String servizio;               // required
-    private String note;                   // optional
-    private String utenteInserimento;      // optional
-    private String tipoOperazione;         // optional
-    private String quantita;               // optional (XSD la mette string)
-    private Kit kit;                       // required
-    private Lotto lotto;                   // required
-    private String interventoId;           // optional
+    public String spedizioneId;           // required
+    public String data;                   // xs:anySimpleType -> manteniamo String
+    public String servizio;               // required
+    public String note;                   // optional
+    public String utenteInserimento;      // optional
+    public String tipoOperazione;         // optional
+    public String quantita;               // optional (XSD la mette string)
+    public Kit kit;                       // required
+    public Lotto lotto;                   // required
+    public String interventoId;           // optional
 
     private Carico() {
+    }
+
+    /**
+     * @return the spedizioneId
+     */
+    public String getSpedizioneId() {
+        return spedizioneId;
+    }
+
+    /**
+     * @return the data
+     */
+    public String getData() {
+        return data;
+    }
+
+    /**
+     * @return the servizio
+     */
+    public String getServizio() {
+        return servizio;
+    }
+
+    /**
+     * @return the note
+     */
+    public String getNote() {
+        return note;
+    }
+
+    /**
+     * @return the utenteInserimento
+     */
+    public String getUtenteInserimento() {
+        return utenteInserimento;
+    }
+
+    /**
+     * @return the tipoOperazione
+     */
+    public String getTipoOperazione() {
+        return tipoOperazione;
+    }
+
+    /**
+     * @return the quantita
+     */
+    public String getQuantita() {
+        return quantita;
+    }
+
+    /**
+     * @return the kit
+     */
+    public Kit getKit() {
+        return kit;
+    }
+
+    /**
+     * @return the lotto
+     */
+    public Lotto getLotto() {
+        return lotto;
+    }
+
+    /**
+     * @return the interventoId
+     */
+    public String getInterventoId() {
+        return interventoId;
     }
 
     public static Builder builder() {

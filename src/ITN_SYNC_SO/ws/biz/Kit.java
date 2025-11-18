@@ -10,12 +10,40 @@ package ITN_SYNC_SO.ws.biz;
  */
 public class Kit extends XmlUtil {
 
-    private String codice;         // required
-    private String descrizione;    // required
-    private String id;             // required (XSD: "Id")
-    private String prezzo;         // optional (XSD: string)
+    public String codice;         // required
+    public String descrizione;    // required
+    public String id;             // required (XSD: "Id")
+    public String prezzo;         // optional (XSD: string)
 
     private Kit() {
+    }
+
+    /**
+     * @return the codice
+     */
+    public String getCodice() {
+        return codice;
+    }
+
+    /**
+     * @return the descrizione
+     */
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @return the prezzo
+     */
+    public String getPrezzo() {
+        return prezzo;
     }
 
     public static Builder builder() {

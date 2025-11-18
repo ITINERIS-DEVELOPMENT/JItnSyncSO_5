@@ -15,33 +15,41 @@ import org.apache.log4j.Logger;
  *
  * @author lucio
  */
-public class WsTxRx implements UpdTxInterface, CommandInterface{
+public class WsTxRx implements UpdTxInterface, CommandInterface {
 
     private final Logger logger = Logger.getLogger(WsTxRx.class);
-    
+
     private final DbProperties dbProperties;
 
     public WsTxRx(DbProperties dbProperties) {
         this.dbProperties = dbProperties;
     }
-    
+
     @Override
     public boolean excecuteUpdate(Synch synch) {
         boolean ret = false;
-        
-        Request req = loadData(synch);
-        String parametri = req.toXml();
-        WebServiceHandler wsh = new WebServiceHandler(dbProperties);
-        String resp = wsh.execRequestAndGetBody(parametri);
-        
-        logger.debug("Web service response: " + resp);
-        
-        if(resp != null)
-            ret = resp.contains("<responseStatus>0</responseStatus>");
-        
-        if(!ret)
-            logger.error("Web service response: " + resp);
-        
+
+        try {
+            Request req = loadData(synch);
+
+            String parametri = new SoapKitFerriMessageWriter().buildSoapMessage(req);
+
+            WebServiceHandler wsh = new WebServiceHandler(dbProperties);
+            String resp = wsh.execRequestAndGetBody(parametri);
+
+            logger.debug("Web service response: " + resp);
+
+            if (resp != null) {
+                ret = resp.contains("<responseStatus>0</responseStatus>");
+            }
+
+            if (!ret) {
+                logger.error("Web service response: " + resp);
+            }
+        } catch (Exception ex) {
+            logger.error("Web service response error", ex);
+        }
+
         return ret;
     }
 
@@ -54,7 +62,7 @@ public class WsTxRx implements UpdTxInterface, CommandInterface{
     public void shutdown() {
         //not used
     }
-    
+
     private Request loadData(Synch synch) {
         String tipoOperazione = "";
         switch (synch.getCommand()) {
@@ -74,31 +82,31 @@ public class WsTxRx implements UpdTxInterface, CommandInterface{
                 tipoOperazione = "RefreshDest";
                 break;
         }
-        
+
         return new Request()
-            .addCarico(
-                Carico.builder()
-                    .spedizioneId(Integer.toString(synch.getIdSpedizione()))
-                    .data(synch.getData())              // xs:anySimpleType -> decidi tu il formato
-                    .servizio("")
-                    .note("")
-                    .utenteInserimento("")
-                    .tipoOperazione(tipoOperazione)
-                    .quantita("1")
-                    .kit(Kit.builder()
-                            .codice(synch.getCodiceKit())
-                            .descrizione(synch.getDescKit())
-                            .id(synch.getIdKit())
-                            .prezzo("")
-                            .build())
-                    .lotto(Lotto.builder()
-                            .scadenza(synch.getDataScadLong())       // unsignedLong
-                            .descrizione(synch.getLotto())
-                            .codice(synch.getLottoNumerico())           // unsignedLong
-                            .build())
-                    .interventoId("")
-                    .build()
-            );
+                .addCarico(
+                        Carico.builder()
+                                .spedizioneId(Integer.toString(synch.getIdSpedizione()))
+                                .data(synch.getData()) // xs:anySimpleType -> decidi tu il formato
+                                .servizio("")
+                                .note("")
+                                .utenteInserimento("")
+                                .tipoOperazione(tipoOperazione)
+                                .quantita("1")
+                                .kit(Kit.builder()
+                                        .codice(synch.getCodiceKit())
+                                        .descrizione(synch.getDescKit())
+                                        .id(synch.getIdKit())
+                                        .prezzo("")
+                                        .build())
+                                .lotto(Lotto.builder()
+                                        .scadenza(synch.getDataScadLong()) // unsignedLong
+                                        .descrizione(synch.getLotto())
+                                        .codice(synch.getLottoNumerico()) // unsignedLong
+                                        .build())
+                                .interventoId("")
+                                .build()
+                );
 
         /*String xml = req.toXml();
         System.out.println(xml);
@@ -106,14 +114,15 @@ public class WsTxRx implements UpdTxInterface, CommandInterface{
         // Se vuoi bytes UTF-8:
         byte[] bytes = xml.getBytes(StandardCharsets.UTF_8);*/
     }
-    
+
     public static void main(String[] args) {
-        
+
         String input = "Abc 12345";
         java.util.regex.Matcher m = java.util.regex.Pattern.compile("(\\d+)$").matcher(input);
         if (m.find()) {
             System.out.println((m.group(1)));
-        } else
+        } else {
             System.out.println("0");
+        }
     }
 }

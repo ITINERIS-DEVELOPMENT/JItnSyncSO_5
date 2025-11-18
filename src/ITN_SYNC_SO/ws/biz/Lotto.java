@@ -10,12 +10,33 @@ package ITN_SYNC_SO.ws.biz;
  */
 public class Lotto extends XmlUtil{
     // XSD: scadenza unsignedLong, codice unsignedLong -> usiamo long >= 0
-        private Long scadenza;         // required, unsignedLong
-        private String descrizione;    // required
-        private Long codice;           // required, unsignedLong
+        public Long scadenza;         // required, unsignedLong
+        public String descrizione;    // required
+        public Long codice;           // required, unsignedLong
 
         private Lotto() {
         }
+
+    /**
+     * @return the scadenza
+     */
+    public Long getScadenza() {
+        return scadenza;
+    }
+
+    /**
+     * @return the descrizione
+     */
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    /**
+     * @return the codice
+     */
+    public Long getCodice() {
+        return codice;
+    }
 
         public static Builder builder() {
             return new Builder();
