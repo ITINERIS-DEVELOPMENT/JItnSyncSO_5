@@ -142,15 +142,6 @@ public class Synch {
         this.dataScad = dataScad;
     }
 
-    public long getDataScadLong(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        try {
-            return sdf.parse(data).getTime();
-        } catch (ParseException ex) {
-            return 0;
-        }
-    }
-    
     /**
      * @return the command
      */

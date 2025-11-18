@@ -83,9 +83,9 @@ public class WsTxRx implements UpdTxInterface, CommandInterface {
                 break;
         }
 
-        logger.debug(String.format("idspedizione=%s, data=%s, tipo operazione=%s, codice kit=%s, desc kit=%s, id kit=%s, scadenza=%s, scadenza long=%s, lotto long=%s", 
+        logger.debug(String.format("idspedizione=%s, data=%s, tipo operazione=%s, codice kit=%s, desc kit=%s, id kit=%s, scadenza=%s, lotto long=%s", 
                 synch.getIdSpedizione(), synch.getData(), tipoOperazione, synch.getCodiceKit(), synch.getDescKit(), 
-                synch.getIdKit(), synch.getData(), Long.toString(synch.getDataScadLong()), Long.toString(synch.getLottoNumerico())));
+                synch.getIdKit(), synch.getData(), Long.toString(synch.getLottoNumerico())));
         
         return new Request()
                 .addCarico(
