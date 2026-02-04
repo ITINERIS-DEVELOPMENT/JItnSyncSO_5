@@ -268,7 +268,7 @@ public class DbMsSqlTxRx extends DbMsSqlInterface implements CommandInterface, U
                 */
 
                 // viewSetFerri
-                synch.setUseOra(MyDate.toString(rs.getTimestamp(DF_FLD_VKIT_DATETIME), "yyyy-MM-dd HH:mm:ss"));
+                //synch.setUseOra(MyDate.toString(rs.getTimestamp(DF_FLD_VKIT_DATETIME), "yyyy-MM-dd HH:mm:ss"));
             }
             
             else { // if(dbProperties.isDIGISTAT())

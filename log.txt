@@ -1033,3 +1033,590 @@ wsApiKey=0e05482f-bd76-460b-9e3d-99de2b870054
 12 Nov 2025 13:29:49,72820   [Thread-0] INFO  ITN_SYNC_SO.Engine  - *** Shared Tables Integration/Interfacing ***
 12 Nov 2025 13:29:49,72820   [Thread-0] INFO  ITN_SYNC_SO.Engine  - Running synchTx()
 12 Nov 2025 13:29:49,78779   [Thread-0] INFO  ITN_SYNC_SO.db.dbf.FileDBF  - Open DBF, file=/home/lucio/Progetti/JitnSyncSO_5/dbtest/tra_sync.dbf
+18 Nov 2025 13:01:00,7340    [main] INFO  root  - ****************************************************
+progType=ORMAWIN_2
+rdbmsType=ORACLE
+rdbmsIpAddress=10.0.1.158
+rdbmsPort=2664
+rdbmsDbName=orcl
+rdbmsUsername=ITINERIS
+rdbmsPassword=ITINERIS
+rdbmsDbUsername=itineris
+txrx_type=0
+dbf_params=./dbtest/ow20_master.dbf
+use_timestamp=yes
+sql_logger=yes
+debug_sql_logger=yes
+wsApiEndpoint=http://10.0.1.31:8082/test/test
+wsApiKeyHeader=X-Gravitee-Api-Key
+wsApiKey=0e05482f-bd76-460b-9e3d-99de2b870054
+****************************************************
+
+
+18 Nov 2025 13:01:00,74814   [main] INFO  root  - ****************************************************
+progType=ORMAWIN
+rdbmsType=MSSQL
+rdbmsIpAddress=10.0.1.158
+rdbmsPort=2664
+rdbmsDbName=orcl
+rdbmsUsername=ITINERIS
+rdbmsPassword=ITINERIS
+rdbmsDbUsername=itineris
+txrx_type=0
+dbf_params=./dbtest/ow20_slave.dbf
+use_timestamp=yes
+sql_logger=yes
+debug_sql_logger=yes
+wsApiEndpoint=http://10.0.1.31:8082/test/test
+wsApiKeyHeader=X-Gravitee-Api-Key
+wsApiKey=0e05482f-bd76-460b-9e3d-99de2b870054
+****************************************************
+
+
+18 Nov 2025 13:01:00,77238   [Thread-0] INFO  ITN_SYNC_SO.Engine  - *** Shared Tables Integration/Interfacing ***
+18 Nov 2025 13:01:00,77440   [Thread-0] INFO  ITN_SYNC_SO.Engine  - Running synchTx()
+18 Nov 2025 13:01:00,910176  [Thread-0] INFO  ITN_SYNC_SO.db.dbf.FileDBF  - Open DBF, file=/home/lucio/Progetti/JitnSyncSO_5/dbtest/tra_sync.dbf
+18 Nov 2025 13:01:33,39632662 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:33,39932665 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:33,40232668 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:33,40632672 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:34,28633552 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:34,31733583 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:34,49933765 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:34,49933765 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:34,49933765 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:34,49933765 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:34,63733903 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:34,63833904 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:34,87834144 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:34,87934145 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:34,87934145 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:34,87934145 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:35,02334289 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:35,02734293 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:35,33634602 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:35,33834604 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:35,33934605 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:35,34134607 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:35,47834744 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:35,48334749 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:35,85335119 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:35,85335119 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:35,85335119 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:35,85335119 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:35,99135257 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:35,99335259 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:36,42435690 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:36,42535691 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:36,42535691 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:36,42635692 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:36,56335829 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:36,56435830 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:37,05536321 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:37,05636322 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:37,05636322 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:37,05736323 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:37,20636472 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:37,20936475 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:37,76637032 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:37,76737033 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:37,76737033 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:37,76737033 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:37,92337189 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:37,92537191 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:38,53737803 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:38,53837804 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:38,53837804 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:38,53837804 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:38,67737943 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:38,67937945 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:39,37038636 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:39,37138637 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:39,37138637 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:39,37138637 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:39,51138777 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:39,51338779 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:40,24839514 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:40,24839514 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:40,24939515 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:40,24939515 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:40,40139667 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:40,40339669 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:41,19840464 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:41,19940465 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:41,19940465 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:41,20040466 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:41,33540601 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:41,33640602 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:42,18741453 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:42,18741453 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:42,18841454 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:42,18841454 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:42,32841594 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:42,32941595 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:43,25042516 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:43,25042516 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:43,25142517 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:43,25142517 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:43,39142657 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:43,39442660 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:44,40643672 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:44,40743673 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:44,40743673 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:44,40743673 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:44,55343819 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:44,55543821 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null
+18 Nov 2025 13:01:45,60544871 [Thread-0] INFO  ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - Cannot connect to mssql server, url=jdbc:jtds:sqlserver://10.0.1.158:2664;databaseName=orcl
+18 Nov 2025 13:01:45,60544871 [Thread-0] ERROR ITN_SYNC_SO.db.rx.DbMsSqlTxRx  - *** Connection Error : Network error IOException: No route to host - 08S01 - 0
+18 Nov 2025 13:01:45,60544871 [Thread-0] ERROR ITN_SYNC_SO.Engine  - Cannot connect to mssql server
+18 Nov 2025 13:01:45,60544871 [Thread-0] INFO  ITN_SYNC_SO.Engine  - 1 Records Found, 0 Records Sent
+18 Nov 2025 13:01:45,76645032 [Thread-0] ERROR ITN_SYNC_SO.ws.WebServiceHandler  - Error in getResponse
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at ITN_SYNC_SO.ws.WebServiceHandler.execRequestAndGetBody(WebServiceHandler.java:55)
+	at ITN_SYNC_SO.ws.WsTxRx.excecuteUpdate(WsTxRx.java:38)
+	at ITN_SYNC_SO.Engine.synchTx(Engine.java:178)
+	at ITN_SYNC_SO.Engine.runShareTableSync(Engine.java:58)
+	at ITN_SYNC_SO.Engine.run(Engine.java:43)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 more
+18 Nov 2025 13:01:45,76745033 [Thread-0] ERROR ITN_SYNC_SO.ws.WsTxRx  - Web service response: null

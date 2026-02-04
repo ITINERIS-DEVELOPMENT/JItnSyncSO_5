@@ -17,7 +17,7 @@ rdbmsDbViewSale=vSALE2
 
 dbf_params=./dbtest/ow20_master.dbf
 
-# tipo trasmissione (0=TX+RX, 1=solo TX, 2=solo RX) (TX not enabled se PROG TYPE=[6=ORMAWIN_2])
+# tipo trasmissione (0=TX+RX, 1=solo TX, 2=solo RX)
 txrx_type=0
 
 # usato solo per DIGISTAT
